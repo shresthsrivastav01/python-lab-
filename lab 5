@@ -1,0 +1,112 @@
+# triple all numbers in given list of integers
+
+def tri(n):
+    return list(map(lambda x:x*3,n))
+
+n=[1,2,3,4,5]
+tri_num = tri(n)
+print(tri_num)
+
+
+# add three list using map and lambda
+
+def add(l1,l2,l3):
+    return list(map(lambda x,y,z:x+y+z,l1,l2,l3))
+
+l1=[1,2,3]
+l2=[4,5,6]
+l3=[7,8,9]
+sum=add(l1,l2,l3)
+print(sum)
+
+
+# power of number in list
+
+def pow(n, p):
+    return list(map(lambda x: x ** p, n))
+
+n = [1, 2, 3, 4, 5]
+tri_num = pow(n, 3)  # Raise each element of n to the power of 3
+print(tri_num)
+
+
+# square of number in list 
+
+numbers = [1, 2, 3, 4, 5]
+squared_numbers = list(map(lambda x: x ** 2, numbers))
+print(squared_numbers)
+
+
+# covert upper to lower case and vice versa
+
+def conver(s):
+    return list(map(lambda x: x.upper(), s))
+
+s = "heLLo"
+con = conver(s)
+print(con)
+
+def conver(s):
+    return list(map(lambda x: x.upper(), s.lower()))
+
+s = "heLLo"
+con = conver(s)
+print(con)
+
+
+# diff between two list using map
+
+list1 = [10, 20, 30, 40, 50]
+list2 = [5, 10, 15, 20, 25]
+difference = list(map(lambda x, y: x - y, list1, list2))
+print(difference)
+
+
+# List of integers to tuple
+
+integer_list = [1, 2, 3, 4, 5]
+integer_tuple = tuple(integer_list)
+print(integer_tuple)
+
+
+# String to integer
+
+num_str = "12345"
+num_int = int(num_str)
+print(num_int)
+
+
+# array element sum into integer
+
+numbers = [1, 2, 3, 4, 5]
+total_sum = sum(map(lambda x: x, numbers))
+print(total_sum)
+
+
+# fibonacci series using map and lambda
+
+from functools import reduce
+
+# Function to generate Fibonacci series
+def fibonacci(n):
+    return list(map(lambda x: x[0], reduce(lambda a, _: a + [(a[-1] + a[-2], a[-1])], range(n - 2), [(0, 1), (1, 1)])))
+
+n = 10  # Length of the Fibonacci series
+fib_series = fibonacci(n)
+print(fib_series)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
