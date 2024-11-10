@@ -1,0 +1,101 @@
+# pattern
+
+for i in range(1,6):
+    print(f"{i}"*i)
+
+
+for i in range(1, 6):
+    print(" " * (i - 1) + f"{i}" * (6 - i))
+
+
+for i in range(1,6):
+    print(" "*(5-i)+" ".join(str(j) for j in range(1,i+1)))
+
+
+for i in range(5,0,-1):
+    print(" "*(5-i)+f"{5}"*i+" "*(5-i))
+
+
+for i in range(0,6):
+    print(" ".join(str(j)for j in range(i)))
+
+
+num=1
+count=1
+for i in range(3):
+    for i in range(count):
+        print(num,end=" ")
+        num +=1
+    print()
+    count +=2    
+
+
+for i in range(1,6):
+    print(" ".join(str(10-2*j) for j in range(i)))
+
+
+for i in range(1,8):
+    print(" "*(7-i)+"*"*i)
+
+
+for i in range(6,0,-1):
+    print(" "*(6-i)+"*"*i)
+
+
+for i in range(1,6):
+    print("*"*(i))
+
+
+# WAP separate the string into comma separate
+
+x = "India is my country"
+sep_val = x.replace(" ",",")
+print(sep_val)
+
+
+# remove a given character from a string
+
+y = "M.A.N.I.P.A.L"
+rem = "A"
+remo = y.replace(rem, "")
+print("String after removing '{}': {}".format(rem, remo))
+
+
+# sort string
+
+s=["banana","apple","orange"]
+sor=sorted(s)
+print(sor)
+
+
+#reverse a string
+
+g=input("enter string")
+s=''.join(reversed(g))
+print(s)
+
+
+# confirm that this string is digit
+
+dig_str='12345'
+is_digit=dig_str.isdigit()
+print(is_digit)
+
+
+# number of vowel
+
+v_str = "hello world"
+v = "aeiouAEIOU"
+count_v = sum(1 for i in v_str if i in v)
+print(count_v)
+
+
+
+
+
+
+
+
+
+
+
