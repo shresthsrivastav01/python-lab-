@@ -6,3 +6,116 @@
          print("number is even")
      else:
         print("number is odd")    
+
+
+# assign marks to student bassed on percentage
+
+def marks(n):
+    if(n>90):
+        return 'A'
+    elif(n>80):
+        return 'B' 
+    elif(n>70):
+        return 'C'
+    elif(n>60):
+        return 'D'
+    elif(n>33):
+        return 'E'
+    else:
+        return 'F'
+
+sum=0
+for i in range(5):
+    mark=int(input("enter marks"))
+    sum+=mark
+
+n = (sum/500)*100    
+j = marks(n)
+print(n)
+print(j)
+
+
+# find area of circle
+
+import math;
+def area(r):
+    a=math.pi*(r**2)
+    return a
+
+r = int(input("enter radius of circle"))
+j=area(r)
+print(j)
+
+
+# number is armstrong or not
+
+def armstrong(l):
+    k=len(l)
+    sum=0
+    for i in range(k):
+        sum+=int(l[i])**len(l)
+    return sum
+
+l = input("enter the number")
+p=int(l)
+result = p
+if result==p:
+    print("it is armstrong")
+else:
+    print("it is not armstrong")       
+
+
+# find sum of the digit
+
+def sum(f):
+    s=0
+    for i in range(len(f)):
+        s+=int(f[i])
+    return s    
+
+f = input("enter number")
+h=sum(f)
+print(h)
+
+
+# find perfect number
+
+def perfect(n):
+    sum=0
+    for i in range(1,n):
+        if n%i==0:
+            sum+=i
+    return sum
+
+n= int(input("enter number"))
+r=perfect(n)
+if(r==n):
+    print("perfect square")
+else:
+    print("not perfect square")     
+
+
+# reverse a number
+
+n=input("enter number")
+for i in range(len(n)-1,-1,-1):
+    print(n[i])
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
