@@ -1,0 +1,67 @@
+# cube of element by sending length as argumentin  functin
+
+def cube_of_elements(*args):
+    return [x**3 for x in args]
+
+result = cube_of_elements(1, 2, 3, 4, 5, 6)
+print(result)
+
+
+# list arg into function
+
+def my_function(*args):
+    for arg in args:
+        print(arg)
+
+arguments_list = [10, 20, 30, 40]
+my_function(*arguments_list)
+
+
+
+#  tower of hanoi
+
+def tower_of_hanoi(n, source, destination, auxiliary):
+    if n == 1:
+        print(f"Move disk 1 from {source} to {destination}")
+        return
+    # Move n-1 disks from source to auxiliary peg
+    tower_of_hanoi(n-1, source, auxiliary, destination)
+    
+    # Move the nth disk from source to destination
+    print(f"Move disk {n} from {source} to {destination}")
+    
+    # Move the n-1 disks from auxiliary to destination peg
+    tower_of_hanoi(n-1, auxiliary, destination, source)
+
+n = 3
+tower_of_hanoi(n, 'A', 'C', 'B')
+
+
+# counting uppercase and lowercase in a string
+
+def count(n,a,b):
+     for char in n:
+          if(char.isupper()):
+               a+=1
+          elif(char.islower()):
+               b+=1 
+     return a,b          
+
+n=input("enter string")
+u_count=0
+l_count=0
+j=count(n,u_count,l_count)
+print(j)
+
+
+
+
+
+
+
+
+
+
+
+
+
