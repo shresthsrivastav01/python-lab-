@@ -1,0 +1,145 @@
+# check for strong number
+
+import math
+n=input("enter number")
+k=int(n)
+sum=0
+for i in range(len(n)):
+    sum+=math.factorial(int(n[i]))
+
+if k==sum:
+    print("strong number")
+else:
+    print("not strong number")
+
+
+# prime or not
+
+def is_prime(n):
+    if n <= 1:  # Check for numbers less than or equal to 1
+        return False
+    for i in range(2, int(n**0.5) + 1):  # Check divisors from 2 to the square root of n
+        if n % i == 0:  # If n is divisible by i, it's not prime
+            return False
+    return True  # If no divisors were found, it's prime
+
+number = int(input("Enter a number: "))
+
+if is_prime(number):
+    print(f"{number} is a prime number.")
+else:
+    print(f"{number} is not a prime number.")
+
+
+# check for palindrome or not
+
+n=input("enter number")
+sum=""
+for i in range(len(n)-1,-1,-1):
+    sum+=n[i]
+
+if sum==n:
+    print("palindrome")
+else:
+    print("not palindrome")
+
+
+# factorial of number
+
+n=int(input("enter number"))
+f=1
+for i in range(1,n):
+    f*=i
+print(f)
+
+# fibonacci series
+
+l=int(input("enter how long"))
+a,b=0,1
+while(a<l):
+    print(a,end=" ")
+    a,b=b,a+b
+
+
+# sum of fubonacci series
+
+l=int(input("enter how long"))
+a,b=0,1
+sum=0
+while(a<l):
+    sum+=a
+    a,b=b,a+b
+print(sum)
+
+
+# gcd and lcm
+
+def gcd(a,b):
+    a,b=b,a%b
+    return a
+
+def lcm(a,b):
+    g=(a*b)/gcd(a,b)
+    return g
+
+n1=int(input("enter number"))
+n2=int(input("enter number"))
+
+d=gcd(n1,n2)
+o=lcm(n1,n2)
+print("gcd is: ",d)
+print("lcm is: ",o)
+
+
+#console based calculator
+
+def add(x, y):
+    return x + y
+
+
+def subtract(x, y):
+    return x - y
+
+
+def multiply(x, y):
+    return x * y
+
+def divide(x, y):
+    if y == 0:
+        return "Error! Division by zero."
+    return x / y
+
+def calculator():
+    print("Select operation:")
+    print("1. Add")
+    print("2. Subtract")
+    print("3. Multiply")
+    print("4. Divide")
+
+    choice = input("Enter choice(1/2/3/4): ")
+
+    if choice in ['1', '2', '3', '4']:
+        # Take user input for numbers
+        num1 = float(input("Enter first number: "))
+        num2 = float(input("Enter second number: "))
+
+        if choice == '1':
+            print(f"{num1} + {num2} = {add(num1, num2)}")
+        elif choice == '2':
+            print(f"{num1} - {num2} = {subtract(num1, num2)}")
+        elif choice == '3':
+            print(f"{num1} * {num2} = {multiply(num1, num2)}")
+        elif choice == '4':
+            print(f"{num1} / {num2} = {divide(num1, num2)}")
+    else:
+        print("Invalid input! Please choose a valid operation.")
+
+while True:
+    calculator()
+
+    next_calculation = input("Do you want to perform another calculation? (yes/no): ")
+    if next_calculation.lower() != 'yes':
+        print("Exiting the calculator. Goodbye!")
+        break
+
+
