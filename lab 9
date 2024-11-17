@@ -1,0 +1,289 @@
+# 1. Bubble Sort using Python (with Classes and Methods)
+
+class BubbleSort:
+    def __init__(self, arr):
+        self.arr = arr
+    
+    def sort(self):
+        n = len(self.arr)
+        for i in range(n):
+            for j in range(0, n - i - 1):
+                if self.arr[j] > self.arr[j + 1]:
+                    self.arr[j], self.arr[j + 1] = self.arr[j + 1], self.arr[j]
+        return self.arr
+
+# Example usage
+arr = [64, 34, 25, 12, 22, 11, 90]
+bubble_sort = BubbleSort(arr)
+print("Sorted array using Bubble Sort:", bubble_sort.sort())
+
+
+# 2. Insertion Sort using Python
+
+class InsertionSort:
+    def __init__(self, arr):
+        self.arr = arr
+    
+    def sort(self):
+        for i in range(1, len(self.arr)):
+            key = self.arr[i]
+            j = i - 1
+            while j >= 0 and key < self.arr[j]:
+                self.arr[j + 1] = self.arr[j]
+                j -= 1
+            self.arr[j + 1] = key
+        return self.arr
+
+# Example usage
+arr = [64, 25, 12, 22, 11]
+insertion_sort = InsertionSort(arr)
+print("Sorted array using Insertion Sort:", insertion_sort.sort())
+
+
+# 3. Selection Sort using Python
+
+class SelectionSort:
+    def __init__(self, arr):
+        self.arr = arr
+    
+    def sort(self):
+        n = len(self.arr)
+        for i in range(n):
+            min_idx = i
+            for j in range(i+1, n):
+                if self.arr[j] < self.arr[min_idx]:
+                    min_idx = j
+            self.arr[i], self.arr[min_idx] = self.arr[min_idx], self.arr[i]
+        return self.arr
+
+# Example usage
+arr = [64, 25, 12, 22, 11]
+selection_sort = SelectionSort(arr)
+print("Sorted array using Selection Sort:", selection_sort.sort())
+
+
+# 4. Merge Sort using Python
+
+class MergeSort:
+    def __init__(self, arr):
+        self.arr = arr
+    
+    def merge(self, left, right):
+        result = []
+        i = j = 0
+        while i < len(left) and j < len(right):
+            if left[i] < right[j]:
+                result.append(left[i])
+                i += 1
+            else:
+                result.append(right[j])
+                j += 1
+        result.extend(left[i:])
+        result.extend(right[j:])
+        return result
+    
+    def sort(self, arr=None):
+        if arr is None:
+            arr = self.arr
+        
+        if len(arr) <= 1:
+            return arr
+        
+        mid = len(arr) // 2
+        left = self.sort(arr[:mid])
+        right = self.sort(arr[mid:])
+        
+        return self.merge(left, right)
+
+# Example usage
+arr = [38, 27, 43, 3, 9, 82, 10]
+merge_sort = MergeSort(arr)
+print("Sorted array using Merge Sort:", merge_sort.sort())
+
+
+# 5. Quick Sort using Python
+
+class QuickSort:
+    def __init__(self, arr):
+        self.arr = arr
+    
+    def partition(self, low, high):
+        pivot = self.arr[high]
+        i = low - 1
+        for j in range(low, high):
+            if self.arr[j] <= pivot:
+                i += 1
+                self.arr[i], self.arr[j] = self.arr[j], self.arr[i]
+        self.arr[i + 1], self.arr[high] = self.arr[high], self.arr[i + 1]
+        return i + 1
+    
+    def sort(self, low=0, high=None):
+        if high is None:
+            high = len(self.arr) - 1
+        
+        if low < high:
+            pi = self.partition(low, high)
+            self.sort(low, pi - 1)
+            self.sort(pi + 1, high)
+        
+        return self.arr
+
+# Example usage
+arr = [10, 80, 30, 90, 40, 50, 70]
+quick_sort = QuickSort(arr)
+print("Sorted array using Quick Sort:", quick_sort.sort())
+
+
+# 6. Linear Search using Python
+
+class LinearSearch:
+    def __init__(self, arr):
+        self.arr = arr
+    
+    def search(self, target):
+        for i, val in enumerate(self.arr):
+            if val == target:
+                return i  # Return index of the target
+        return -1  # Return -1 if not found
+
+# Example usage
+arr = [64, 25, 12, 22, 11]
+linear_search = LinearSearch(arr)
+target = 22
+print(f"Target {target} found at index:", linear_search.search(target))
+
+
+# 7. Binary Search using Python
+
+class BinarySearch:
+    def __init__(self, arr):
+        self.arr = arr
+    
+    def search(self, target, low=0, high=None):
+        if high is None:
+            high = len(self.arr) - 1
+        
+        while low <= high:
+            mid = (low + high) // 2
+            if self.arr[mid] == target:
+                return mid
+            elif self.arr[mid] < target:
+                low = mid + 1
+            else:
+                high = mid - 1
+        return -1  # Return -1 if not found
+
+# Example usage
+arr = [11, 12, 22, 25, 64]
+binary_search = BinarySearch(arr)
+target = 22
+print(f"Target {target} found at index:", binary_search.search(target))
+
+
+# 8. Binary Tree using Python
+
+class Node:
+    def __init__(self, key):
+        self.left = None
+        self.right = None
+        self.value = key
+
+class BinaryTree:
+    def __init__(self):
+        self.root = None
+    
+    def insert(self, value):
+        if not self.root:
+            self.root = Node(value)
+        else:
+            self._insert(self.root, value)
+    
+    def _insert(self, node, value):
+        if value < node.value:
+            if node.left is None:
+                node.left = Node(value)
+            else:
+                self._insert(node.left, value)
+        else:
+            if node.right is None:
+                node.right = Node(value)
+            else:
+                self._insert(node.right, value)
+    
+    def inorder(self, node=None):
+        if node is None:
+            node = self.root
+        result = []
+        if node:
+            result += self.inorder(node.left)
+            result.append(node.value)
+            result += self.inorder(node.right)
+        return result
+
+# Example usage
+bt = BinaryTree()
+values = [50, 30, 20, 40, 70, 60, 80]
+for val in values:
+    bt.insert(val)
+
+print("Inorder traversal of the binary tree:", bt.inorder())
+
+
+# 9. Binary Search Tree using Python
+
+class BinarySearchTree:
+    def __init__(self):
+        self.root = None
+    
+    class Node:
+        def __init__(self, key):
+            self.left = None
+            self.right = None
+            self.value = key
+    
+    def insert(self, value):
+        if not self.root:
+            self.root = self.Node(value)
+        else:
+            self._insert(self.root, value)
+    
+    def _insert(self, node, value):
+        if value < node.value:
+            if node.left is None:
+                node.left = self.Node(value)
+            else:
+                self._insert(node.left, value)
+        else:
+            if node.right is None:
+                node.right = self.Node(value)
+            else:
+                self._insert(node.right, value)
+    
+    def search(self, value):
+        return self._search(self.root, value)
+    
+    def _search(self, node, value):
+        if node is None or node.value == value:
+            return node
+        if value < node.value:
+            return self._search(node.left, value)
+        return self._search(node.right, value)
+
+# Example usage
+bst = BinarySearchTree()
+values = [50, 30, 20, 40, 70, 60, 80]
+for val in values:
+    bst.insert(val)
+
+target = 40
+found_node = bst.search(target)
+if found_node:
+    print(f"Node {target} found in BST")
+else:
+    print(f"Node {target} not found in BST")
+
+
+
+
+
+
