@@ -1,0 +1,130 @@
+#using try and except
+try: 
+a = 10 
+b = 0 
+c = a/b 
+print("The answer of a divide    
+by b:", c) 
+except: 
+print("Can't divide with zero.  
+Provide different number")
+
+
+# Catching Specific Exceptions
+
+try: 
+a = int(input("Enter value of a:")) 
+b = int(input("Enter value of b:")) 
+c = a/b 
+print("The answer of a divide by b:", c) 
+exceptValueError: 
+print("Entered value is wrong") 
+exceptZeroDivisionError: 
+print("Can't divide by zero")
+
+
+#Handle multiple exceptions with a single except clause
+
+try: 
+a = int(input("Enter value of a:")) 
+b = int(input("Enter value of b:")) 
+c = a / b 
+print("The answer of a divide by b:", c)
+ except(ValueError, ZeroDivisionError): 
+print("Please enter a valid value")
+
+
+# Using try with finally
+
+try: 
+a = int(input("Enter value of a:")) 
+b = int(input("Enter value of b:")) 
+c = a / b 
+print("The answer of a divide by b:", c)
+ exceptZeroDivisionError: 
+print("Can't divide with zero")
+ finally: 
+print("Inside a finally block")
+
+
+# Using try with else clause
+
+ try: 
+a = int(input("Enter value of a:")) 
+b = int(input("Enter value of b:")) 
+c = a / b 
+print("a/b = %d" % c) 
+exceptZeroDivisionError: 
+print("Can't divide by zero") 
+else: 
+print("We are in else block ")
+
+
+# Raising an Exception
+
+defsimple_interest(amount, year, rate): 
+try: 
+ifrate > 100: 
+raise ValueError(rate) 
+interest = (amount * year * rate) / 100
+ print('The Simple Interest is', interest) 
+return interest 
+except ValueError: 
+print('interest rate is out of range', rate)
+ print('Case 1’) 
+simple_interest(800, 6, 8) 
+print('Case 2’) 
+simple_interest(800, 6, 800)
+
+
+# Exception Chaining
+
+class Error(Exception): 
+"""Base class for other exceptions""" 
+pass
+ class ValueTooSmallError(Error): 
+"""Raised when the input value is small""" 
+pass
+ class ValueTooLargeError(Error): 
+"""Raised when the input value is large""“
+ pass
+
+while(True):
+ try:
+ num = int(input("Enter any value in 10 to 50 range: "))
+ if num < 10:
+ raise ValueTooSmallError
+ elif num > 50:
+ raise ValueTooLargeError
+ break
+ except ValueTooSmallError:
+ print("Value is below range..try again")
+ except ValueTooLargeError:
+ print("value out of range...try again")
+ print("Great! value in correct range.")
+
+
+# Exception Life Cycle
+
+defsum_of_list(numbers): 
+returnsum(numbers)
+ defaverage(sum, n):
+ # ZeroDivisionErrorif list is empty 
+returnsum/n 
+deffinal_data(data): 
+foritemindata: 
+print("Average:", average(sum_of_list(item), len(item)))
+ list1=[10,20, 30,40,50] 
+list2=[100,200,300,400,500]
+ # empty list 
+list3=[] 
+lists=[list1, list2, list3]
+ final_data(lists)
+
+
+
+
+
+
+
+
